@@ -275,7 +275,7 @@ export function AdminPanel() {
     return (
       <Card className="max-w-md mx-auto">
         <CardHeader>
-          <CardTitle>🔐 Acceso Administrativo</CardTitle>
+          <CardTitle>🔐 Acceso Administrativo - Noche de Gol Monteagudo</CardTitle>
           <CardDescription>
             Introduce la contraseña para acceder al panel de administración
           </CardDescription>

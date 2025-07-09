@@ -33,7 +33,7 @@ export default function HomePage() {
               />
             </div>
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              🏆 Torneo de Fútbol Local
+              🏆 Noche de Gol Monteagudo
             </h1>
             <p className="text-xl text-gray-600">
               Inscripción de equipos para el torneo de nuestro pueblo

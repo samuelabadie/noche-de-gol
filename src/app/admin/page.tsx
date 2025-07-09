@@ -20,7 +20,7 @@ export default function AdminPage() {
               />
             </div>
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              🏆 Panel de Administración
+              🏆 Panel de Administración - Noche de Gol Monteagudo
             </h1>
             <p className="text-xl text-gray-600">
               Gestión del torneo de fútbol local
