@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Equipe {
+  id              Int       @id @default(autoincrement())
+  nom             String
+  whatsapp        String    // WhatsApp number for bizum payment
+  pueblo          String    // Town/village of the team
+  dateInscription DateTime  @default(now())
+  groupeId        Int?
+  groupe          Groupe?   @relation(fields: [groupeId], references: [id])
+  joueurs         Joueur[]
+  matchsEquipe1   Match[]   @relation("Equipe1")
+  matchsEquipe2   Match[]   @relation("Equipe2")
+}
+
+model Groupe {
+  id      Int      @id @default(autoincrement())
+  nom     String   // "Grupo A", "Grupo B"
+  equipes Equipe[]
+}
+
+model Joueur {
+  id        Int     @id @default(autoincrement())
+  nom       String
+  poste     String?
+  estCoach  Boolean @default(false)
+  equipeId  Int
+  equipe    Equipe  @relation(fields: [equipeId], references: [id])
+  buteurs   Buteur[]
+}
+
+model Match {
+  id             Int     @id @default(autoincrement())
+  equipe1Id      Int
+  equipe2Id      Int
+  scoreEquipe1   Int?
+  scoreEquipe2   Int?
+  date           DateTime @default(now())
+  termine        Boolean  @default(false)
+  phase          String   @default("grupo") // "grupo", "cuartos", "semifinal", "final"
+  equipe1        Equipe   @relation("Equipe1", fields: [equipe1Id], references: [id])
+  equipe2        Equipe   @relation("Equipe2", fields: [equipe2Id], references: [id])
+  buteurs        Buteur[]
+}
+
+model Buteur {
+  id        Int     @id @default(autoincrement())
+  joueurId  Int
+  matchId   Int
+  minute    Int?
+  joueur    Joueur  @relation(fields: [joueurId], references: [id])
+  match     Match   @relation(fields: [matchId], references: [id])
+}
