@@ -6,13 +6,11 @@ import { getEquipes } from '@/lib/actions'
 import { useEffect, useState } from 'react'
 
 export default function HomePage() {
-  const [equipes, setEquipes] = useState<any[]>([])
   const [nombreEquipes, setNombreEquipes] = useState(0)
 
   useEffect(() => {
     const loadEquipes = async () => {
       const equipesData = await getEquipes()
-      setEquipes(equipesData)
       setNombreEquipes(equipesData.length)
     }
     loadEquipes()

@@ -8,7 +8,7 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Badge } from '@/components/ui/badge'
 import { X } from 'lucide-react'
-import { Match, Equipe, Joueur } from '@/types'
+import { Match, Equipe } from '@/types'
 
 interface MatchButeursDialogProps {
   match: Match | null

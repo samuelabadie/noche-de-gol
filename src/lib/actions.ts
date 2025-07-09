@@ -859,7 +859,8 @@ export async function genererEquipesTest() {
     revalidatePath('/admin')
     return { success: true }
   } catch (error) {
-    return { success: false, error: error instanceof Error ? error.message : 'Error desconocido' }
+    console.error('Error generating test teams:', error)
+    return { success: false, error: 'Error desconocido' }
   }
 }
 

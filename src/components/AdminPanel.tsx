@@ -11,7 +11,7 @@ import { Badge } from '@/components/ui/badge'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { getEquipes, getMatchs, creerMatch, terminerMatch, getClassementParGroupe, supprimerEquipe, genererGroupes, getGroupes, genererMatchsGroupes, terminerMatchAvecButeurs, getMeilleursButeurs, supprimerTousMatchs, genererDemiFinales, verifierMatchsGroupesTermines, resetTournoi, genererEquipesTest, genererResultatsAleatoires } from '@/lib/actions'
-import { Equipe, Match, Groupe, Buteur } from '@/types'
+import { Equipe, Match } from '@/types'
 import { MatchButeursDialog } from './MatchButeursDialog'
 
 export function AdminPanel() {
@@ -84,6 +84,7 @@ export function AdminPanel() {
         setMessage({ type: 'error', text: 'Contraseña incorrecta' })
       }
     } catch (error) {
+      console.error('Login error:', error)
       setMessage({ type: 'error', text: 'Error de conexión' })
     }
     

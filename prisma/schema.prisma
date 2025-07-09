@@ -13,6 +13,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// Uncomment this for production with PostgreSQL:
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL")
+// }
+
 model Equipe {
   id              Int       @id @default(autoincrement())
   nom             String

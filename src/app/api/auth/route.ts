@@ -13,9 +13,7 @@ export async function POST(request: NextRequest) {
       )
     }
   } catch (error) {
-    return NextResponse.json(
-      { success: false, error: 'Error del servidor' },
-      { status: 500 }
-    )
+    console.error('Auth error:', error)
+    return Response.json({ error: 'Internal server error' }, { status: 500 })
   }
 } 
